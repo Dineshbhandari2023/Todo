@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "../assets/App.css";
 export default class TodoListScreen extends Component {
   render() {
     return (
@@ -30,10 +30,9 @@ export default class TodoListScreen extends Component {
 }
 
 class TodoItem extends React.Component {
-  constructor() {
-    super();
-    this.handleClick = this.handleClick.bind(this);
-  }
+  // constructor() {
+  //   super();
+  // }
   handleClick = () => {
     this.props.history.push("/todo/" + this.props.id);
   };

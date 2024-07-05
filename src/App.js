@@ -13,6 +13,13 @@ class App extends React.Component {
         description: "Wash hand and brush teeth",
         completed: true,
       },
+      {
+        id: 1,
+        title: "Wash Hand",
+        created: "Wed Apr 20 2020",
+        description: "Wash hand and brush teeth",
+        completed: false,
+      },
     ],
   };
   render() {
@@ -21,7 +28,10 @@ class App extends React.Component {
         <AppBar />
         <br />
         <Routes>
-          <Route path="/" render={(props) => <TodoListScreen {...props} />} />
+          <Route
+            path="/"
+            render={(props) => <TodoListScreen state={this.state} {...props} />}
+          />
         </Routes>
         {/* todo: routes */}
       </div>
