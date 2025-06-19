@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { Todo } from "../model";
 import { PencilLine, Trash2, CheckLine } from "lucide-react";
 import TodoList from "./TodoList";
@@ -25,49 +25,12 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const handleEdit = (e: React.FormEvent, id: number) => {
-    e.preventDefault();
-    setTodos(
-      todos.map((todo) => (todo.id === id ? { ...todo, todo: editTodo } : todo))
-    );
-    setEdit(false);
-  };
-
-  const EditRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    EditRef.current?.focus();
-  }, [edit]);
-
   return (
-    <form
-      onSubmit={(e) => handleEdit(e, todo.id)}
-      className="bg-gray-300 m-4 p-6 max-w-2xl h-20 justify-center align-middle border-2 border-blue-500 rounded-md"
-    >
+    <form className="bg-gray-400 m-4 p-6 max-w-2xl h-20 justify-center align-middle border-2 border-blue-500 rounded-md">
       <div className="ml-8 flex justify-between">
-        {edit ? (
-          <input
-            ref={EditRef}
-            value={editTodo}
-            onChange={(e) => {
-              setEditTodo(e.target.value);
-            }}
-            className="p-2 rounded-sm"
-          />
-        ) : todo.isDone ? (
-          <s>{todo.todo}</s>
-        ) : (
-          <span>{todo.todo}</span>
-        )}
-
+        {todo.isDone ? <s>{todo.todo}</s> : <span>{todo.todo}</span>}
         <div className="flex justify-between gap-7">
-          <span
-            onClick={() => {
-              if (!edit && !todo.isDone) {
-                setEdit(!edit);
-              }
-            }}
-          >
+          <span onClick={() => handleEdit(todo.id)}>
             <PencilLine className="cursor-pointer" />
           </span>
           <span onClick={() => handleDelete(todo.id)}>

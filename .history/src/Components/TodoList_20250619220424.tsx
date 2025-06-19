@@ -11,7 +11,7 @@ const TodoList = ({ todos, setTodos }: Props) => {
   return (
     <div className="flex justify-between">
       <div className="w-2/4 bg-green-600 rounded-md m-1">
-        <h1 className="text-center text-2xl font-extrabold p-3">Active Task</h1>
+        <h1 className="text-center text-2xl font-extrabold">Active Task</h1>
         <div>
           {todos.map((todo) => (
             <SingleTodo
@@ -24,9 +24,7 @@ const TodoList = ({ todos, setTodos }: Props) => {
         </div>
       </div>
       <div className="w-2/4 bg-red-600 rounded-md m-1">
-        <h1 className="text-center text-2xl font-extrabold p-3">
-          Completed Task
-        </h1>
+        <h1 className="text-center text-2xl font-extrabold">Completed Task</h1>
         <div>
           {todos.map((todo) => (
             <SingleTodo

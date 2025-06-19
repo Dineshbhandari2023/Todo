@@ -5,9 +5,11 @@ import SingleTodo from "./SingleTodo";
 interface Props {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  completedTodos: completedTodos[];
+  setCompletedTodos: React.Dispatch
 }
 
-const TodoList = ({ todos, setTodos }: Props) => {
+const TodoList = ({ todos, setTodos completedTodos, setcompletedTodos }: Props) => {
   return (
     <div className="flex justify-between">
       <div className="w-2/4 bg-green-600 rounded-md m-1">

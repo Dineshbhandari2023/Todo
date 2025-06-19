@@ -42,7 +42,7 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
   return (
     <form
       onSubmit={(e) => handleEdit(e, todo.id)}
-      className="bg-gray-300 m-4 p-6 max-w-2xl h-20 justify-center align-middle border-2 border-blue-500 rounded-md"
+      className="bg-gray-400 m-4 p-6 max-w-2xl h-20 justify-center align-middle border-2 border-blue-500 rounded-md"
     >
       <div className="ml-8 flex justify-between">
         {edit ? (
